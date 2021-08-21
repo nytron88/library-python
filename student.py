@@ -8,7 +8,7 @@ class Student:
             return self.name == other.name and self.roll_number == other.roll_number
         return False
 
-    def __str__(self):
+    def __str__(self):s
         return f"Name: {self.name}, Roll Number: {self.roll_number}"
 
     def __hash__(self) -> int:
