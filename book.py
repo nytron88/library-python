@@ -8,8 +8,11 @@ class Book:
             return self.name == other.name and self.author == other.author
         return False
 
+    def __str__(self) -> str:
+        return f"Book: {self.name}, Author: {self.author}"
+
+    def __repr__(self) -> str:
+        return f"Book: {self.name}, Author: {self.author}"
+
     def __hash__(self) -> int:
         return super().__hash__()
-
-    def __str__(self):
-        return "Book: " + self.name, "Author: " + self.author

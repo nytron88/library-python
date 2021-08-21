@@ -11,7 +11,6 @@ class Library:
         self.Catalog = Catalog
         self.itemsOut = {}
         self.books = []
-        self.test = list(self.itemsOut)
 
     def addBook(self, Book):
         Catalog.addbook(self.Catalog, Book)

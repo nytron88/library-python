@@ -14,5 +14,8 @@ class Catalog:
     def removebook(self, Book):
         self.books.remove(Book)
 
-    def __str__(self):
-        return f"{self.books}"
+
+
+
+
+
