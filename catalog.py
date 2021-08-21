@@ -1,21 +1,14 @@
 from book import Book
-
-book = Book("No", "No")
-book2 = Book("Hi", "hi")
+from BooksInLibrary import Books
 
 
 class Catalog:
     def __init__(self):
-        self.books = [book, book2]
+        self.books = [Books.book, Books.book2, Books.book3]
 
     def addbook(self, Book):
         self.books.append(Book)
 
     def removebook(self, Book):
         self.books.remove(Book)
-
-
-
-
-
 

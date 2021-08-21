@@ -51,6 +51,7 @@ lib = Library(catalog)
 stud = Student("Sid", 1)
 book = Book("No", "No")
 
+print(catalog.books)
 lib.checkout(stud, book)
 
 print(lib.itemsOut)
