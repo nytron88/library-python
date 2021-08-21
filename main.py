@@ -55,7 +55,7 @@ print(catalog.books)
 lib.checkout(stud, book)
 
 print(lib.itemsOut)
-print("Hello")
+
 
 
 
