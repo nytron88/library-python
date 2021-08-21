@@ -32,7 +32,7 @@ if id == "AdiJai8334" and int(passw) == 1111:
         done = True
         print("Wrong student, restart")
     while not done:
-        command = input("\n Type in the command you want to use: ")d
+        command = input("\n Type in the command you want to use: ")
 
         if command == 'checkout':
             book_name = input("Book name: ")
