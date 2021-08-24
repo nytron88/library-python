@@ -54,7 +54,11 @@ if id == "AdiJai8334" and int(passw) == 1111:
                 lib.checkIn(stud, book)
             else:
                 lib.checkIn(stud2, book)
-
+        elif command.lower() == 'details':
+            if stud_1:
+                print(lib.checkItems(stud))
+            else:
+                print(lib.checkItems(stud2))
 
 elif id == "SidJai6944" and int(passw) == 0000:
     print("You Logged in as a teacher")
