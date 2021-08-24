@@ -12,7 +12,7 @@ class Book:
         return f"Book: {self.name} Author: {self.author}"
 
     def __repr__(self) -> str:
-        return f"Book: {self.name} Author: {self.author}"
+        return f"[Book: {self.name}, Author: {self.author}]"
 
     def __hash__(self) -> int:
         return super().__hash__()

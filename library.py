@@ -19,38 +19,42 @@ class Library:
         Catalog.removebook(self.Catalog, Book)
 
     def checkout(self, Student, Book):
-
+        checker = False
         for i in self.Catalog.books:
-            if not Book.__eq__(i):
-                print("No")
-                break
-            else:
+            if Book.__eq__(i):
                 self.books.append(Book)
                 self.itemsOut[Student] = self.books
                 self.Catalog.removebook(Book)
                 print(f"Book checkout - {Student.__str__()} : {Book.__str__()}")
+                checker = False
                 break
+            else:
+                checker = True
+        if checker:
+            print("Book not available in the library")
 
     def checkIn(self, Student, Book):
         idk = False
-        idk2 = False
+        checker = False
         for i in self.itemsOut.keys():
             if Student.__eq__(i):
                 idk = True
                 break
-            else:
+            elif not Student.__eq__(i):
                 idk = False
+                print("That Book was never issued to you")
                 break
         for i in self.books:
             if Book.__eq__(i) and idk:
-                idk2 = True
                 self.books.remove(Book)
                 self.Catalog.addbook(Book)
-                print("Hello")
+                print(f"Book CheckIn- {Student.__str__()}, {Book.__str__()}")
+                checker = False
                 break
             else:
-                idk2 = False
-                break
+                checker = True
+        if checker:
+            print("Book was never issued to you")
 
     def checkItems(self, Student):
         return self.itemsOut.get(Student)
