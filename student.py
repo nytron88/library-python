@@ -12,9 +12,7 @@ class Student:
         return f"Name: {self.name}, Roll Number: {self.roll_number}"
 
     def __repr__(self) -> str:
-        return f"Name: {self.name}, Roll Number: {self.roll_number}"
+        return f"[Student: {self.name}, Roll Number: {self.roll_number}]"
 
     def __hash__(self) -> int:
         return super().__hash__()
-
-
