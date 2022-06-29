@@ -8,7 +8,7 @@ class Book:
             return self.name == other.name and self.author == other.author
         return False
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Book: {self.name} Author: {self.author}"
 
     def __repr__(self) -> str:
