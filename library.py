@@ -1,61 +1,63 @@
+from catalog import Catalog
 from book import Book
 from student import Student
-from catalog import Catalog
+from students import students
 
+catalog = Catalog()
 
-# catalog1 = Catalog()
 
 class Library:
 
-    def __init__(self, Catalog):
-        self.Catalog = Catalog
-        self.itemsOut = {}
+    def __init__(self):
+        self.itemsout = {}
         self.books = []
+        self.students = [students.student1, students.student2, students.student3, students.student4]
 
-    def addBook(self, Book):
-        Catalog.addbook(self.Catalog, Book)
+    def addbook(self, Book):
+        catalog.addbook(Book)
 
-    def removeBook(self, Book):
-        Catalog.removebook(self.Catalog, Book)
+    def removebook(self, Book):
+        catalog.removebook(Book)
 
     def checkout(self, Student, Book):
-        checker = False
-        for i in self.Catalog.books:
-            if Book.__eq__(i):
-                self.books.append(Book)
-                self.itemsOut[Student] = self.books
-                self.Catalog.removebook(Book)
-                print(f"Book checkout - {Student.__str__()} : {Book.__str__()}")
-                checker = False
+        checked = True
+        checker = True
+        for j in self.students:
+            if Student.__eq__(j):
+                checker = True
+                for i in catalog.books:
+                    if Book.__eq__(i):
+                        catalog.removebook(Book)
+                        self.books.append(Book)
+                        self.itemsout[Student] = self.books
+                        print("Book successfully checkedout")
+                        checked = True
+                    else:
+                        checked = False
                 break
             else:
-                checker = True
-        if checker:
+                checker = False
+        if (checked == False):
             print("Book not available in the library")
 
-    def checkIn(self, Student, Book):
-        idk = False
-        checker = False
-        for i in self.itemsOut.keys():
-            if Student.__eq__(i):
-                idk = True
-                break
-            elif not Student.__eq__(i):
-                idk = False
-                print("That Book was never issued to you")
-                break
+        if (checker == False):
+           print("Student isn't even signed up")
+
+    def checkin(self, Student, Book):
+        checked = True
         for i in self.books:
-            if Book.__eq__(i) and idk:
+            if Book.__eq__(i):
                 self.books.remove(Book)
-                self.Catalog.addbook(Book)
-                print(f"Book CheckIn- {Student.__str__()}, {Book.__str__()}")
-                checker = False
-                break
+                catalog.addbook(Book)
+                checked = True
+                print("Book successfully checkedin")
             else:
-                checker = True
-        if checker:
-            print("Book was never issued to you")
+                checked = False
+        if (checked == False):
+            print("Book was never checkedout to you")
 
-    def checkItems(self, Student):
-        return self.itemsOut.get(Student)
+    def itemsoutStu(self, Student):
+        return self.itemsout.get(Student)
 
+    def checkitems(self):
+        return catalog.books
